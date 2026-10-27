@@ -21,6 +21,12 @@ import SelectRecipientScreen from '../screens/transfer/SelectRecipientScreen';
 import TransferByIPAScreen from '../screens/transfer/TransferByIPAScreen';
 import TransferByMobileScreen from '../screens/transfer/TransferByMobileScreen';
 import TransferByBankAccountScreen from '../screens/transfer/TransferByBankAccountScreen';
+import EnterTransferAmountScreen from '../screens/transfer/EnterTransferAmountScreen';
+import QuickReviewTransferScreen from '../screens/transfer/QuickReviewTransferScreen';
+import QuickTransferResultScreen from '../screens/transfer/QuickTransferResultScreen';
+
+import TransactionHistoryScreen from '../screens/history/TransactionHistoryScreen';
+import TransactionDetailsScreen from '../screens/history/TransactionDetailsScreen';
 
 import ProfileScreen from '../screens/profile/ProfileScreen';
 import ManageIPAScreen from '../screens/profile/ManageIPAScreen';
@@ -85,15 +91,22 @@ export default function AppNavigator() {
         <Stack.Screen name="TransferByIPA" component={TransferByIPAScreen} />
         <Stack.Screen name="TransferByMobile" component={TransferByMobileScreen} />
         <Stack.Screen name="TransferByBankAccount" component={TransferByBankAccountScreen} />
+        <Stack.Screen name="EnterTransferAmount" component={EnterTransferAmountScreen} />
+        <Stack.Screen name="QuickReviewTransfer" component={QuickReviewTransferScreen} />
+        <Stack.Screen name="QuickTransferResult" component={QuickTransferResultScreen} options={{ gestureEnabled: false, animation: 'fade' }} />
 
-        {/* 3 - Profile & IPA Management */}
+        {/* 3 - Transaction History */}
+        <Stack.Screen name="TransactionHistory" component={TransactionHistoryScreen} />
+        <Stack.Screen name="TransactionDetails" component={TransactionDetailsScreen} />
+
+        {/* 4 - Profile & IPA Management */}
         <Stack.Screen name="ManageIPA" component={ManageIPAScreen} />
         <Stack.Screen name="Settings" component={SettingsScreen} />
         <Stack.Screen name="ChangePIN" component={ChangePINScreen} />
         <Stack.Screen name="TrustedDevices" component={TrustedDevicesScreen} />
         <Stack.Screen name="Legal" component={LegalScreen} />
 
-        {/* 4 - Notifications & Support */}
+        {/* 5 - Notifications & Support */}
         <Stack.Screen name="Notifications" component={NotificationsScreen} />
         <Stack.Screen name="HelpSupport" component={HelpSupportScreen} />
         <Stack.Screen name="FAQ" component={FAQScreen} />

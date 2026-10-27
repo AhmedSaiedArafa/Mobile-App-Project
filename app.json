@@ -1,7 +1,7 @@
 {
   "expo": {
-    "name": "InstaPay UI",
-    "slug": "instapay-ui",
+    "name": "SwiftFlow",
+    "slug": "swiftflow",
     "version": "1.0.0",
     "orientation": "portrait",
     "userInterfaceStyle": "automatic",

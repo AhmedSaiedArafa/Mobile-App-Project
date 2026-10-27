@@ -1,8 +1,9 @@
 import React, { useMemo, useState } from 'react';
-import { Text, View } from 'react-native';
+import { Pressable, Text, View } from 'react-native';
 import { Ionicons } from '@expo/vector-icons';
 import { useTheme } from '../../theme';
 import { useI18n } from '../../i18n';
+import { useAppState } from '../../state/AppState';
 import { banks, recipients } from '../../data/mock';
 import { matches } from '../../utils/search';
 import { Avatar, Button, Card, ChipGroup, Divider, Header, ListRow, Screen, SearchBar } from '../../components';
@@ -14,6 +15,7 @@ import { Avatar, Button, Card, ChipGroup, Divider, Header, ListRow, Screen, Sear
 export default function SelectRecipientScreen({ navigation, route }) {
   const { colors } = useTheme();
   const { t, loc, icons } = useI18n();
+  const { isFavorite, toggleFavorite } = useAppState();
   const returnTo = route.params?.returnTo;
   const [query, setQuery] = useState('');
   const [filter, setFilter] = useState('all');
@@ -26,9 +28,9 @@ export default function SelectRecipientScreen({ navigation, route }) {
   const list = useMemo(() => {
     const q = query.trim().toLowerCase();
     return recipients
-      .filter((r) => filter === 'all' || r.favorite)
+      .filter((r) => filter === 'all' || isFavorite(r.id))
       .filter((r) => !q || matches(r, 'name', q) || r.ipa.includes(q) || r.mobile.includes(q));
-  }, [query, filter]);
+  }, [query, filter, isFavorite]);
 
   const bankName = (short) => {
     const bank = banks.find((b) => b.short === short);
@@ -63,7 +65,9 @@ export default function SelectRecipientScreen({ navigation, route }) {
               subtitle={detail(r)}
               right={
                 <View className="flex-row items-center gap-1.5">
-                  {r.favorite ? <Ionicons name="star" size={16} color={colors.warning} /> : null}
+                  <Pressable onPress={() => toggleFavorite(r.id)} hitSlop={8}>
+                    <Ionicons name={isFavorite(r.id) ? 'star' : 'star-outline'} size={20} color={isFavorite(r.id) ? colors.warning : colors.textFaint} />
+                  </Pressable>
                   <Ionicons name={icons.forward} size={18} color={colors.textFaint} />
                 </View>
               }

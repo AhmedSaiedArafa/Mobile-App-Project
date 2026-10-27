@@ -3,6 +3,7 @@ import { Pressable, ScrollView, Text, View } from 'react-native';
 import { Ionicons } from '@expo/vector-icons';
 import { useTheme } from '../../theme';
 import { useI18n } from '../../i18n';
+import { useAppState } from '../../state/AppState';
 import { recentTransactions, recipients } from '../../data/mock';
 import { ActionTile, Avatar, BalanceCard, Card, Header, Screen, SectionHeader, ThemeToggle, TransactionRow } from '../../components';
 
@@ -16,7 +17,8 @@ const METHODS = [
 export default function TransferScreen({ navigation }) {
   const { colors } = useTheme();
   const { t, loc } = useI18n();
-  const favorites = recipients.filter((r) => r.favorite);
+  const { isFavorite } = useAppState();
+  const favorites = recipients.filter((r) => isFavorite(r.id));
   const transfers = recentTransactions.filter((tx) => tx.accent !== 'blue');
 
   return (

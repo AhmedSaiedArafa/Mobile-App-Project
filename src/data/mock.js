@@ -4,7 +4,7 @@ export const user = {
   firstName: 'Ahmed',
   fullName: 'Ahmed Saied',
   fullNameAr: 'أحمد سعيد',
-  ipa: 'ahmed.saied@instapay',
+  ipa: 'ahmed.saied@swiftflow',
   mobile: '01001234567',
   email: 'ahmed.saied@example.com',
   memberSince: 'March 2024',
@@ -21,8 +21,8 @@ export const support = {
 };
 
 export const userIPAs = [
-  { id: 'ipa1', address: 'ahmed.saied@instapay', accountId: 'cib', isDefault: true, createdAt: 'Mar 12, 2024', createdAtAr: '12 مارس 2024' },
-  { id: 'ipa2', address: 'ahmed.savings@instapay', accountId: 'bm', isDefault: false, createdAt: 'Aug 03, 2025', createdAtAr: '3 أغسطس 2025' },
+  { id: 'ipa1', address: 'ahmed.saied@swiftflow', accountId: 'cib', isDefault: true, createdAt: 'Mar 12, 2024', createdAtAr: '12 مارس 2024' },
+  { id: 'ipa2', address: 'ahmed.savings@swiftflow', accountId: 'bm', isDefault: false, createdAt: 'Aug 03, 2025', createdAtAr: '3 أغسطس 2025' },
 ];
 
 export const trustedDevices = [
@@ -67,9 +67,9 @@ export const faqCategories = ['General', 'Transfers', 'Bills', 'IPA', 'Security'
 
 export const faqs = [
   { id: 'f1', category: 'General',
-    q: 'What is InstaPay?', qAr: 'ما هو إنستاباي؟',
-    a: 'InstaPay lets you send and receive money instantly between bank accounts, cards and wallets in Egypt, 24/7, and pay your bills from one app.',
-    aAr: 'يتيح لك إنستاباي إرسال واستقبال الأموال فوراً بين الحسابات البنكية والبطاقات والمحافظ في مصر على مدار الساعة، ودفع فواتيرك من تطبيق واحد.' },
+    q: 'What is SwiftFlow?', qAr: 'ما هو سويفت فلو؟',
+    a: 'SwiftFlow lets you send and receive money instantly between bank accounts, cards and wallets in Egypt, 24/7, and pay your bills from one app.',
+    aAr: 'يتيح لك سويفت فلو إرسال واستقبال الأموال فوراً بين الحسابات البنكية والبطاقات والمحافظ في مصر على مدار الساعة، ودفع فواتيرك من تطبيق واحد.' },
   { id: 'f2', category: 'General',
     q: 'Which banks can I link?', qAr: 'ما البنوك التي يمكنني ربطها؟',
     a: 'You can link debit cards and accounts from any participating bank in Egypt. Go to Accounts > Link account and follow the steps.',
@@ -84,8 +84,8 @@ export const faqs = [
     aAr: 'لا. لا يمكن استرداد التحويلات الفورية بعد تأكيدها. تحقق دائماً من اسم المستفيد قبل إدخال رقمك السري.' },
   { id: 'f5', category: 'Transfers',
     q: 'What can I send money to?', qAr: 'إلى أين يمكنني إرسال الأموال؟',
-    a: 'You can send to an InstaPay address (IPA), a mobile number linked to InstaPay, a bank account number or IBAN, a card, or a mobile wallet.',
-    aAr: 'يمكنك الإرسال إلى عنوان إنستاباي (IPA)، أو رقم موبايل مرتبط بإنستاباي، أو رقم حساب بنكي أو IBAN، أو بطاقة، أو محفظة موبايل.' },
+    a: 'You can send to an SwiftFlow address (IPA), a mobile number linked to SwiftFlow, a bank account number or IBAN, a card, or a mobile wallet.',
+    aAr: 'يمكنك الإرسال إلى عنوان سويفت فلو (IPA)، أو رقم موبايل مرتبط بسويفت فلو، أو رقم حساب بنكي أو IBAN، أو بطاقة، أو محفظة موبايل.' },
   { id: 'f6', category: 'Bills',
     q: 'Which bills can I pay?', qAr: 'ما الفواتير التي يمكنني دفعها؟',
     a: 'Electricity, water, gas, mobile, internet, landline, education, insurance, credit cards, government services, subscriptions and donations.',
@@ -96,8 +96,8 @@ export const faqs = [
     aAr: 'قد تستغرق الجهات حتى 24 ساعة لتحديث البيانات. إذا ظلت مستحقة بعد ذلك، تواصل مع الدعم مع ذكر الرقم المرجعي.' },
   { id: 'f8', category: 'IPA',
     q: 'What is an IPA?', qAr: 'ما هو عنوان IPA؟',
-    a: 'An InstaPay Address is a short name like name@instapay that people can use to send you money without knowing your account number.',
-    aAr: 'عنوان إنستاباي هو اسم قصير مثل name@instapay يمكن للآخرين استخدامه لإرسال الأموال إليك دون معرفة رقم حسابك.' },
+    a: 'An SwiftFlow Address is a short name like name@swiftflow that people can use to send you money without knowing your account number.',
+    aAr: 'عنوان سويفت فلو هو اسم قصير مثل name@swiftflow يمكن للآخرين استخدامه لإرسال الأموال إليك دون معرفة رقم حسابك.' },
   { id: 'f9', category: 'IPA',
     q: 'Can I have more than one IPA?', qAr: 'هل يمكنني امتلاك أكثر من عنوان IPA؟',
     a: 'Yes. You can create one IPA per linked account and choose which one is your default for receiving money.',
@@ -141,12 +141,12 @@ export const banks = [
 ];
 
 export const recipients = [
-  { id: 'r1', name: 'Ahmed Mohamed', nameAr: 'أحمد محمد', ipa: 'ahmed.mohamed@instapay', mobile: '01012345678', bank: 'CIB', favorite: true, accent: 'purple' },
-  { id: 'r2', name: 'Sara Ali', nameAr: 'سارة علي', ipa: 'sara.ali@instapay', mobile: '01198765432', bank: 'NBE', favorite: true, accent: 'green' },
-  { id: 'r3', name: 'Mona Hassan', nameAr: 'منى حسن', ipa: 'mona.h@instapay', mobile: '01234567890', bank: 'QNB', favorite: true, accent: 'pink' },
-  { id: 'r4', name: 'Omar Khaled', nameAr: 'عمر خالد', ipa: 'omar.khaled@instapay', mobile: '01555667788', bank: 'BM', favorite: false, accent: 'blue' },
-  { id: 'r5', name: 'Youssef Adel', nameAr: 'يوسف عادل', ipa: 'youssef.adel@instapay', mobile: '01066554433', bank: 'HSBC', favorite: false, accent: 'orange' },
-  { id: 'r6', name: 'Nour El-Din', nameAr: 'نور الدين', ipa: 'nour.eldin@instapay', mobile: '01122334455', bank: 'AAIB', favorite: false, accent: 'teal' },
+  { id: 'r1', name: 'Ahmed Mohamed', nameAr: 'أحمد محمد', ipa: 'ahmed.mohamed@swiftflow', mobile: '01012345678', bank: 'CIB', favorite: true, accent: 'purple' },
+  { id: 'r2', name: 'Sara Ali', nameAr: 'سارة علي', ipa: 'sara.ali@swiftflow', mobile: '01198765432', bank: 'NBE', favorite: true, accent: 'green' },
+  { id: 'r3', name: 'Mona Hassan', nameAr: 'منى حسن', ipa: 'mona.h@swiftflow', mobile: '01234567890', bank: 'QNB', favorite: true, accent: 'pink' },
+  { id: 'r4', name: 'Omar Khaled', nameAr: 'عمر خالد', ipa: 'omar.khaled@swiftflow', mobile: '01555667788', bank: 'BM', favorite: false, accent: 'blue' },
+  { id: 'r5', name: 'Youssef Adel', nameAr: 'يوسف عادل', ipa: 'youssef.adel@swiftflow', mobile: '01066554433', bank: 'HSBC', favorite: false, accent: 'orange' },
+  { id: 'r6', name: 'Nour El-Din', nameAr: 'نور الدين', ipa: 'nour.eldin@swiftflow', mobile: '01122334455', bank: 'AAIB', favorite: false, accent: 'teal' },
 ];
 
 export const recentTransactions = [
@@ -248,6 +248,33 @@ export const providers = {
     { id: 'osn', name: 'OSN+', nameAr: 'OSN+', short: 'OSN', color: '#111827' },
   ],
 };
+
+export const transactions = [
+  { id: 't1', type: 'sent', group: 'Today',
+    title: 'Transfer to Ahmed Mohamed', titleAr: 'تحويل إلى أحمد محمد',
+    subtitle: '2:30 PM', subtitleAr: '2:30 م',
+    amount: -1000, reference: 'TRX-20261026-4821',
+    date: 'Oct 26, 2026 • 2:30 PM', dateAr: '26 أكتوبر 2026 • 2:30 م',
+    from: 'Main Account ••4521', to: 'ahmed.m@swiftflow', method: 'Transfer by IPA', methodAr: 'تحويل عبر IPA', fee: 0 },
+  { id: 't2', type: 'bill', group: 'Earlier',
+    title: 'Electricity Bill', titleAr: 'فاتورة كهرباء',
+    subtitle: 'Oct 20, 2026 • Egypt Electricity', subtitleAr: '20 أكتوبر 2026 • كهرباء مصر',
+    amount: -350, reference: 'TRX-20261020-3377',
+    date: 'Oct 20, 2026 • 9:15 AM', dateAr: '20 أكتوبر 2026 • 9:15 ص',
+    from: 'Main Account ••4521', to: 'Egypt Electricity', method: 'Bill payment', methodAr: 'دفع فاتورة', fee: 0 },
+  { id: 't3', type: 'received', group: 'Earlier',
+    title: 'Received from Sara Ali', titleAr: 'استلام من سارة علي',
+    subtitle: 'Oct 19, 2026 • IPA Transfer', subtitleAr: '19 أكتوبر 2026 • تحويل IPA',
+    amount: 2500, reference: 'TRX-20261019-5120',
+    date: 'Oct 19, 2026 • 6:40 PM', dateAr: '19 أكتوبر 2026 • 6:40 م',
+    from: 'sara.ali@swiftflow', to: 'Main Account ••4521', method: 'IPA Transfer', methodAr: 'تحويل IPA', fee: 0 },
+  { id: 't4', type: 'sent', group: 'Earlier',
+    title: 'Transfer to Bank Account', titleAr: 'تحويل إلى حساب بنكي',
+    subtitle: 'Oct 18, 2026 • CIB', subtitleAr: '18 أكتوبر 2026 • CIB',
+    amount: -5000, reference: 'TRX-20261018-2209',
+    date: 'Oct 18, 2026 • 1:05 PM', dateAr: '18 أكتوبر 2026 • 1:05 م',
+    from: 'Main Account ••4521', to: 'CIB ••8802', method: 'Bank transfer', methodAr: 'تحويل بنكي', fee: 0 },
+];
 
 export const savedBillers = [
   { id: 's1', nickname: 'Home Electricity', nicknameAr: 'كهرباء المنزل', categoryId: 'electricity', providerId: 'nced', reference: '0123456789', due: 350 },

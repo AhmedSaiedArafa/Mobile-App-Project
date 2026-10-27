@@ -42,8 +42,8 @@ export const legal = {
     sections: [
       {
         title: '1. Data we collect', titleAr: '1. البيانات التي نجمعها',
-        body: '• Identity: your full name, national ID number and date of birth.\n• Contact: your mobile number and email address.\n• Financial: linked bank accounts and cards, your InstaPay addresses (IPA), transfers, bill payments and their reference numbers.\n• Device: device model, operating system, app version, IP address and approximate location at login.',
-        bodyAr: '• بيانات الهوية: اسمك الكامل ورقمك القومي وتاريخ ميلادك.\n• بيانات التواصل: رقم موبايلك وبريدك الإلكتروني.\n• البيانات المالية: الحسابات والبطاقات البنكية المرتبطة، وعناوين إنستاباي (IPA)، والتحويلات ومدفوعات الفواتير وأرقامها المرجعية.\n• بيانات الجهاز: طراز الجهاز ونظام التشغيل وإصدار التطبيق وعنوان IP والموقع التقريبي عند تسجيل الدخول.',
+        body: '• Identity: your full name, national ID number and date of birth.\n• Contact: your mobile number and email address.\n• Financial: linked bank accounts and cards, your SwiftFlow addresses (IPA), transfers, bill payments and their reference numbers.\n• Device: device model, operating system, app version, IP address and approximate location at login.',
+        bodyAr: '• بيانات الهوية: اسمك الكامل ورقمك القومي وتاريخ ميلادك.\n• بيانات التواصل: رقم موبايلك وبريدك الإلكتروني.\n• البيانات المالية: الحسابات والبطاقات البنكية المرتبطة، وعناوين سويفت فلو (IPA)، والتحويلات ومدفوعات الفواتير وأرقامها المرجعية.\n• بيانات الجهاز: طراز الجهاز ونظام التشغيل وإصدار التطبيق وعنوان IP والموقع التقريبي عند تسجيل الدخول.',
       },
       {
         title: '2. How we use your data', titleAr: '2. كيف نستخدم بياناتك',

@@ -6,7 +6,7 @@ import { useI18n } from '../i18n';
 import BottomSheet from './BottomSheet';
 import PinPad from './PinPad';
 
-/** IPN PIN entry sheet (InstaPay confirms every payment with a 6-digit PIN). */
+/** IPN PIN entry sheet (SwiftFlow confirms every payment with a 6-digit PIN). */
 export default function PinSheet({ visible, onClose, onComplete, loading }) {
   const { colors } = useTheme();
   const { t } = useI18n();

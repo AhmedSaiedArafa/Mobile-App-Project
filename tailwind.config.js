@@ -4,7 +4,6 @@ const v = (name) => `var(--${name})`;
 module.exports = {
   content: ['./App.js', './src/**/*.{js,jsx}'],
   presets: [require('nativewind/preset')],
-  // Light/dark is applied by swapping the CSS variables below (src/theme), not with `dark:` classes.
   darkMode: 'class',
   theme: {
     extend: {
