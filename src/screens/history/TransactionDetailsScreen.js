@@ -7,6 +7,7 @@ import { transactions } from '../../data/mock';
 import { formatMoney } from '../../utils/format';
 import { Button, Card, DetailRow, Divider, Header, Screen, StatusPill } from '../../components';
 
+// Screen
 export default function TransactionDetailsScreen({ route }) {
   const { colors } = useTheme();
   const { t, loc, money } = useI18n();
@@ -26,7 +27,7 @@ export default function TransactionDetailsScreen({ route }) {
   const isReceived = item.type === 'received';
   const iconName = item.type === 'sent' ? 'paper-plane' : item.type === 'received' ? 'arrow-down' : 'document-text-outline';
   const sign = item.amount < 0 ? '−' : '+';
-  const display = `${sign} ${formatMoney(Math.abs(item.amount))} EGP`;
+  const display = `${sign} ${formatMoney(Math.abs(item.amount))} ${t('common.egp')}`;
 
   const share = () =>
     Share.share({
@@ -48,7 +49,7 @@ export default function TransactionDetailsScreen({ route }) {
         </View>
         <Text className="text-[14px] font-bold text-ink">{loc(item, 'title')}</Text>
         <Text className="text-[28px] font-extrabold text-ink">{display}</Text>
-        <StatusPill label="Completed" />
+        <StatusPill label={t('common.completed')} />
       </Card>
 
       <Card className="mt-4">

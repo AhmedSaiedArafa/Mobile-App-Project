@@ -6,6 +6,11 @@ import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import { useTheme } from '../theme';
 import TabBar from './TabBar';
 
+import { useAppState } from '../state/AppState';
+
+import LoginScreen from '../screens/auth/LoginScreen';
+import SignUpScreen from '../screens/auth/SignUpScreen';
+
 import HomeScreen from '../screens/home/HomeScreen';
 import PlaceholderScreen from '../screens/home/PlaceholderScreen';
 
@@ -27,6 +32,10 @@ import QuickTransferResultScreen from '../screens/transfer/QuickTransferResultSc
 
 import TransactionHistoryScreen from '../screens/history/TransactionHistoryScreen';
 import TransactionDetailsScreen from '../screens/history/TransactionDetailsScreen';
+
+import LinkedAccountsScreen from '../screens/accounts/LinkedAccountsScreen';
+import AccountDetailsScreen from '../screens/accounts/AccountDetailsScreen';
+import AddBankAccountScreen from '../screens/accounts/AddBankAccountScreen';
 
 import ProfileScreen from '../screens/profile/ProfileScreen';
 import ManageIPAScreen from '../screens/profile/ManageIPAScreen';
@@ -50,7 +59,7 @@ function Tabs() {
       tabBar={(props) => <TabBar {...props} />}
     >
       <Tab.Screen name="Home" component={HomeScreen} />
-      <Tab.Screen name="Accounts" component={PlaceholderScreen} />
+      <Tab.Screen name="Accounts" component={LinkedAccountsScreen} />
       <Tab.Screen name="Payments" component={PaymentsScreen} />
       <Tab.Screen name="Profile" component={ProfileScreen} />
     </Tab.Navigator>
@@ -59,6 +68,7 @@ function Tabs() {
 
 export default function AppNavigator() {
   const { colors, isDark, themeVars } = useTheme();
+  const { isLoggedIn } = useAppState();
   const base = isDark ? DarkTheme : DefaultTheme;
   // Navigation paints these behind and between screens, so transitions never flash white.
   const navTheme = {
@@ -76,6 +86,15 @@ export default function AppNavigator() {
             contentStyle: { backgroundColor: colors.background },
           }}
         >
+        {!isLoggedIn ? (
+          <>
+          {/* 0 - Auth */}
+          <Stack.Screen name="Login" component={LoginScreen} options={{ animation: 'fade' }} />
+          <Stack.Screen name="SignUp" component={SignUpScreen} />
+          <Stack.Screen name="HelpSupport" component={HelpSupportScreen} />
+          </>
+        ) : (
+          <>
         <Stack.Screen name="Tabs" component={Tabs} />
 
         {/* 1 - Payments & Bills */}
@@ -99,17 +118,23 @@ export default function AppNavigator() {
         <Stack.Screen name="TransactionHistory" component={TransactionHistoryScreen} />
         <Stack.Screen name="TransactionDetails" component={TransactionDetailsScreen} />
 
-        {/* 4 - Profile & IPA Management */}
+        {/* 4 - Linked Accounts */}
+        <Stack.Screen name="AccountDetails" component={AccountDetailsScreen} />
+        <Stack.Screen name="AddBankAccount" component={AddBankAccountScreen} />
+
+        {/* 5 - Profile & IPA Management */}
         <Stack.Screen name="ManageIPA" component={ManageIPAScreen} />
         <Stack.Screen name="Settings" component={SettingsScreen} />
         <Stack.Screen name="ChangePIN" component={ChangePINScreen} />
         <Stack.Screen name="TrustedDevices" component={TrustedDevicesScreen} />
         <Stack.Screen name="Legal" component={LegalScreen} />
 
-        {/* 5 - Notifications & Support */}
+        {/* 6 - Notifications & Support */}
         <Stack.Screen name="Notifications" component={NotificationsScreen} />
         <Stack.Screen name="HelpSupport" component={HelpSupportScreen} />
         <Stack.Screen name="FAQ" component={FAQScreen} />
+          </>
+        )}
         </Stack.Navigator>
       </NavigationContainer>
     </View>

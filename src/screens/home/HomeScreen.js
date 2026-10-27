@@ -1,5 +1,5 @@
 import React from 'react';
-import { Text, View } from 'react-native';
+import { Pressable, Text, View } from 'react-native';
 import { Ionicons } from '@expo/vector-icons';
 import { useTheme } from '../../theme';
 import { useI18n } from '../../i18n';
@@ -23,12 +23,12 @@ export default function HomeScreen({ navigation }) {
     <Screen>
       <View className="flex-row items-center justify-between mb-5">
         <View className="flex-row items-center gap-3">
-          <View className="w-[54px] h-[54px] rounded-full items-center justify-center border-[3px] bg-primary-soft border-surface">
+          <Pressable onPress={() => navigation.navigate('Profile')} className="w-[54px] h-[54px] rounded-full items-center justify-center border-[3px] bg-primary-soft border-surface active:opacity-70">
             <Ionicons name="person" size={26} color={colors.onSoft} />
-          </View>
+          </Pressable>
           <View>
             <Text className="text-sm text-muted">{t('home.greeting')}</Text>
-            <Text className="text-[22px] font-extrabold mt-0.5 text-ink">{loc(user, 'fullName')} 👋</Text>
+            <Text className="text-[22px] font-extrabold mt-0.5 text-ink">{loc(user, 'fullName')} </Text>
             <Text className="text-[13px] mt-1 text-muted">{t('home.tagline')}</Text>
           </View>
         </View>
