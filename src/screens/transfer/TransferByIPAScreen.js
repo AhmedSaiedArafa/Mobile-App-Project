@@ -14,8 +14,8 @@ import {
   useTransferForm,
 } from './shared';
 
-const SUFFIX = '@instapay';
-const toUsername = (ipa) => ipa.replace(/@instapay$/i, '');
+const SUFFIX = '@swiftflow';
+const toUsername = (ipa) => ipa.replace(/@swiftflow$/i, '');
 
 // Unknown but well-formed addresses resolve to a name derived from the handle (demo data).
 function resolveIPA(ipa) {

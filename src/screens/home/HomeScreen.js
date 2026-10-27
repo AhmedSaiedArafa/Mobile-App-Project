@@ -16,7 +16,7 @@ export default function HomeScreen({ navigation }) {
     { key: 'send', icon: 'paper-plane', accent: 'purple', title: t('home.sendMoney'), onPress: () => navigation.navigate('Transfer') },
     { key: 'bills', icon: 'wallet', accent: 'green', title: t('home.payBills'), onPress: () => navigation.navigate('BillCategories') },
     { key: 'accounts', icon: 'business', accent: 'blue', title: t('home.manageAccounts'), onPress: () => navigation.navigate('Accounts') },
-    { key: 'history', icon: 'time', accent: 'orange', title: t('home.history'), onPress: () => navigation.navigate('Payments') },
+    { key: 'history', icon: 'time', accent: 'orange', title: t('home.history'), onPress: () => navigation.navigate('TransactionHistory') },
   ];
 
   return (
@@ -46,7 +46,7 @@ export default function HomeScreen({ navigation }) {
         ))}
       </View>
 
-      <SectionHeader title={t('home.recent')} onAction={() => navigation.navigate('Payments')} />
+      <SectionHeader title={t('home.recent')} onAction={() => navigation.navigate('TransactionHistory')} />
       {recentTransactions.map((tx, i) => (
         <TransactionRow key={tx.id} item={tx} last={i === recentTransactions.length - 1} />
       ))}

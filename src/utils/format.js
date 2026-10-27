@@ -3,7 +3,7 @@ export function formatMoney(value) {
   return `${int.replace(/\B(?=(\d{3})+(?!\d))/g, ',')}.${dec}`;
 }
 
-// InstaPay-style transfer fee: 0.1% of the amount, min 0.50, max 20 EGP.
+// SwiftFlow transfer fee: 0.1% of the amount, min 0.50, max 20 EGP.
 export function transferFee(amount) {
   if (!amount) return 0;
   return Math.min(20, Math.max(0.5, amount * 0.001));
@@ -34,7 +34,7 @@ export function nowLabel(lang = 'en') {
   return `${MONTHS.en[d.getMonth()]} ${d.getDate()}, ${d.getFullYear()} • ${h}:${m} ${am ? 'AM' : 'PM'}`;
 }
 
-export const isValidIPA = (v) => /^[a-z0-9._-]{3,}@instapay$/i.test(v.trim());
+export const isValidIPA = (v) => /^[a-z0-9._-]{3,}@swiftflow$/i.test(v.trim());
 export const isValidEgMobile = (v) => /^01[0125]\d{8}$/.test(v.replace(/\s/g, ''));
 export const initials = (name) =>
   name

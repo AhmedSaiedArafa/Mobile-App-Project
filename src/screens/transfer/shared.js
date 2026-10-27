@@ -32,7 +32,7 @@ export function useTransferForm() {
 }
 
 /**
- * Simulated InstaPay name lookup. `resolve(key)` returns { name, nameAr?, accent } for the
+ * Simulated SwiftFlow name lookup. `resolve(key)` returns { name, nameAr?, accent } for the
  * recipient, or null when no account exists.
  */
 export function useRecipientLookup(key, valid, resolve) {

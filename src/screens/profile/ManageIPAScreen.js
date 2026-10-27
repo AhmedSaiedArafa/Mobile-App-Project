@@ -7,7 +7,7 @@ import { useAppState } from '../../state/AppState';
 import { accounts, recipients } from '../../data/mock';
 import { AccountPicker, BottomSheet, Button, Card, Header, LogoBadge, Screen, TextField } from '../../components';
 
-const SUFFIX = '@instapay';
+const SUFFIX = '@swiftflow';
 const HANDLE_RE = /^[a-z0-9][a-z0-9._-]{2,19}$/;
 
 export default function ManageIPAScreen() {
