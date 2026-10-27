@@ -1,0 +1,12 @@
+{
+  "expo": {
+    "name": "InstaPay UI",
+    "slug": "instapay-ui",
+    "version": "1.0.0",
+    "orientation": "portrait",
+    "userInterfaceStyle": "automatic",
+    "backgroundColor": "#F3F4FA",
+    "ios": { "supportsTablet": false },
+    "android": {}
+  }
+}
