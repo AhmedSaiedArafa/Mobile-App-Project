@@ -10,7 +10,7 @@ import { BottomSheet, Button, Header, LanguageSheet, languageLabel, MenuGroup, M
 export default function ProfileScreen({ navigation }) {
   const { colors, isDark, toggleTheme } = useTheme();
   const { t, loc, lang } = useI18n();
-  const { defaultIPA, ipas, unreadCount } = useAppState();
+  const { defaultIPA, ipas, unreadCount, logout } = useAppState();
   const [langOpen, setLangOpen] = useState(false);
   const [logoutOpen, setLogoutOpen] = useState(false);
 
@@ -85,8 +85,7 @@ export default function ProfileScreen({ navigation }) {
           <Text className="text-sm mt-1.5 text-center text-muted">{t('profile.logoutText')}</Text>
           <View className="flex-row gap-3 mt-[22px] self-stretch">
             <Button title={t('common.cancel')} variant="secondary" onPress={() => setLogoutOpen(false)} className="flex-1" />
-            {/* TODO: clear the session and go to the login screen once auth exists */}
-            <Button title={t('profile.logout')} onPress={() => setLogoutOpen(false)} className="flex-1" />
+            <Button title={t('profile.logout')} onPress={() => { setLogoutOpen(false); logout(); }} className="flex-1" />
           </View>
         </View>
       </BottomSheet>

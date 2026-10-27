@@ -121,9 +121,11 @@ export const faqs = [
 ];
 
 export const accounts = [
-  { id: 'cib', bank: 'CIB', name: 'CIB Current Account', nameAr: 'الحساب الجاري - CIB', number: '•••• 4821', balance: 18250, logo: 'CIB', logoBg: '#FFFFFF', logoFg: '#0A4DA2' },
-  { id: 'bm', bank: 'Banque Misr', name: 'Banque Misr Savings', nameAr: 'حساب توفير - بنك مصر', number: '•••• 7703', balance: 7180, logo: 'BM', logoBg: '#14112E', logoFg: '#FF5A5F' },
+  { id: 'cib', bank: 'CIB', name: 'CIB Current Account', nameAr: 'الحساب الجاري - CIB', number: '•••• 4821', fullNumber: '1000234567891', holder: 'Ahmed Saied', type: 'Current', balance: 18250, currency: 'EGP', status: 'Active', linkedOn: 'Oct 12, 2026', linkedOnAr: '12 أكتوبر 2026', logo: 'CIB', logoBg: '#FFFFFF', logoFg: '#0A4DA2' },
+  { id: 'bm', bank: 'Banque Misr', name: 'Banque Misr Savings', nameAr: 'حساب توفير - بنك مصر', number: '•••• 7703', fullNumber: '2000987654321', holder: 'Ahmed Saied', type: 'Savings', balance: 7180, currency: 'EGP', status: 'Active', linkedOn: 'Oct 20, 2026', linkedOnAr: '20 أكتوبر 2026', logo: 'BM', logoBg: '#14112E', logoFg: '#FF5A5F' },
 ];
+
+export const accountTypes = ['Savings', 'Current'];
 
 export const totalBalance = accounts.reduce((sum, a) => sum + a.balance, 0);
 
@@ -159,29 +161,29 @@ export const recentTransactions = [
 // mode: 'inquiry' -> fetch the due bill by reference; 'amount' -> user types the amount
 export const billCategories = [
   { id: 'electricity', name: 'Electricity', nameAr: 'الكهرباء', icon: 'flash', accent: 'yellow', mode: 'inquiry',
-    field: { label: 'Meter / Account Number', labelAr: 'رقم العداد / الحساب', placeholder: 'e.g. 0123456789', placeholderAr: 'مثال: 0123456789', keyboard: 'number-pad', min: 8 } },
+    field: { label: 'Meter / Account Number', labelAr: 'رقم العداد / الحساب', placeholder: 'e.g. 0123456789', placeholderAr: 'مثال: 0123456789', keyboard: 'number-pad', min: 8, max: 14 } },
   { id: 'water', name: 'Water', nameAr: 'المياه', icon: 'water', accent: 'blue', mode: 'inquiry',
-    field: { label: 'Customer Number', labelAr: 'رقم العميل', placeholder: 'e.g. 4400112233', placeholderAr: 'مثال: 4400112233', keyboard: 'number-pad', min: 8 } },
+    field: { label: 'Customer Number', labelAr: 'رقم العميل', placeholder: 'e.g. 4400112233', placeholderAr: 'مثال: 4400112233', keyboard: 'number-pad', min: 8, max: 14 } },
   { id: 'gas', name: 'Natural Gas', nameAr: 'الغاز الطبيعي', icon: 'flame', accent: 'orange', mode: 'inquiry',
-    field: { label: 'Subscriber Number', labelAr: 'رقم المشترك', placeholder: 'e.g. 22003311', placeholderAr: 'مثال: 22003311', keyboard: 'number-pad', min: 6 } },
+    field: { label: 'Subscriber Number', labelAr: 'رقم المشترك', placeholder: 'e.g. 22003311', placeholderAr: 'مثال: 22003311', keyboard: 'number-pad', min: 6, max: 12 } },
   { id: 'mobile', name: 'Mobile', nameAr: 'الموبايل', icon: 'phone-portrait', accent: 'purple', mode: 'amount',
-    field: { label: 'Mobile Number', labelAr: 'رقم الموبايل', placeholder: '01X XXXX XXXX', keyboard: 'phone-pad', min: 11 } },
+    field: { label: 'Mobile Number', labelAr: 'رقم الموبايل', placeholder: '01X XXXX XXXX', keyboard: 'phone-pad', min: 11, max: 11 } },
   { id: 'internet', name: 'Internet', nameAr: 'الإنترنت', icon: 'wifi', accent: 'teal', mode: 'inquiry',
-    field: { label: 'Landline Number (with area code)', labelAr: 'رقم التليفون الأرضي (بكود المحافظة)', placeholder: 'e.g. 0223456789', placeholderAr: 'مثال: 0223456789', keyboard: 'phone-pad', min: 9 } },
+    field: { label: 'Landline Number (with area code)', labelAr: 'رقم التليفون الأرضي (بكود المحافظة)', placeholder: 'e.g. 0223456789', placeholderAr: 'مثال: 0223456789', keyboard: 'phone-pad', min: 9, max: 11 } },
   { id: 'landline', name: 'Landline', nameAr: 'التليفون الأرضي', icon: 'call', accent: 'green', mode: 'inquiry',
-    field: { label: 'Landline Number (with area code)', labelAr: 'رقم التليفون الأرضي (بكود المحافظة)', placeholder: 'e.g. 0223456789', placeholderAr: 'مثال: 0223456789', keyboard: 'phone-pad', min: 9 } },
+    field: { label: 'Landline Number (with area code)', labelAr: 'رقم التليفون الأرضي (بكود المحافظة)', placeholder: 'e.g. 0223456789', placeholderAr: 'مثال: 0223456789', keyboard: 'phone-pad', min: 9, max: 11 } },
   { id: 'education', name: 'Education', nameAr: 'التعليم', icon: 'school', accent: 'blue', mode: 'inquiry',
-    field: { label: 'Student ID', labelAr: 'الرقم الجامعي', placeholder: 'e.g. 20231045', placeholderAr: 'مثال: 20231045', keyboard: 'number-pad', min: 6 } },
+    field: { label: 'Student ID', labelAr: 'الرقم الجامعي', placeholder: 'e.g. 20231045', placeholderAr: 'مثال: 20231045', keyboard: 'number-pad', min: 6, max: 14 } },
   { id: 'donations', name: 'Donations', nameAr: 'التبرعات', icon: 'heart', accent: 'pink', mode: 'amount',
-    field: { label: 'Donor Mobile (optional)', labelAr: 'موبايل المتبرع (اختياري)', placeholder: '01X XXXX XXXX', keyboard: 'phone-pad', min: 0 } },
+    field: { label: 'Donor Mobile (optional)', labelAr: 'موبايل المتبرع (اختياري)', placeholder: '01X XXXX XXXX', keyboard: 'phone-pad', min: 0, max: 11 } },
   { id: 'insurance', name: 'Insurance', nameAr: 'التأمين', icon: 'shield-checkmark', accent: 'green', mode: 'inquiry',
-    field: { label: 'Policy Number', labelAr: 'رقم الوثيقة', placeholder: 'e.g. POL-778812', placeholderAr: 'مثال: POL-778812', keyboard: 'default', min: 6 } },
+    field: { label: 'Policy Number', labelAr: 'رقم الوثيقة', placeholder: 'e.g. POL-778812', placeholderAr: 'مثال: POL-778812', keyboard: 'default', min: 6, max: 20 } },
   { id: 'cards', name: 'Credit Cards', nameAr: 'بطاقات الائتمان', icon: 'card', accent: 'purple', mode: 'amount',
-    field: { label: 'Card Number', labelAr: 'رقم البطاقة', placeholder: 'XXXX XXXX XXXX XXXX', keyboard: 'number-pad', min: 16 } },
+    field: { label: 'Card Number', labelAr: 'رقم البطاقة', placeholder: 'XXXX XXXX XXXX XXXX', keyboard: 'number-pad', min: 16, max: 19 } },
   { id: 'government', name: 'Government', nameAr: 'الخدمات الحكومية', icon: 'business', accent: 'orange', mode: 'inquiry',
-    field: { label: 'Reference Number', labelAr: 'الرقم المرجعي', placeholder: 'e.g. 9988776655', placeholderAr: 'مثال: 9988776655', keyboard: 'number-pad', min: 8 } },
+    field: { label: 'Reference Number', labelAr: 'الرقم المرجعي', placeholder: 'e.g. 9988776655', placeholderAr: 'مثال: 9988776655', keyboard: 'number-pad', min: 8, max: 16 } },
   { id: 'subscriptions', name: 'Subscriptions', nameAr: 'الاشتراكات', icon: 'tv', accent: 'red', mode: 'amount',
-    field: { label: 'Subscriber ID / Email', labelAr: 'رقم المشترك / البريد', placeholder: 'Your account ID', placeholderAr: 'معرّف حسابك', keyboard: 'default', min: 3 } },
+    field: { label: 'Subscriber ID / Email', labelAr: 'رقم المشترك / البريد', placeholder: 'Your account ID', placeholderAr: 'معرّف حسابك', keyboard: 'default', min: 3, max: 50 } },
 ];
 
 export const providers = {

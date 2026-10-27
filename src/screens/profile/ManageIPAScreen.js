@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
-import { Pressable, Share, Text, View } from 'react-native';
+import { Pressable, Text, View } from 'react-native';
+import * as Clipboard from 'expo-clipboard';
 import { Ionicons } from '@expo/vector-icons';
 import { useTheme } from '../../theme';
 import { useI18n } from '../../i18n';
@@ -18,8 +19,7 @@ export default function ManageIPAScreen() {
   const [actionsFor, setActionsFor] = useState(null);
   const [confirmDelete, setConfirmDelete] = useState(null);
 
-  // React Native's share sheet also offers "Copy" on both platforms.
-  const share = (ipa) => Share.share({ message: t('ipa.shareText', { address: ipa.address }) });
+  const copyAddress = (ipa) => Clipboard.setStringAsync(ipa.address);
 
   return (
     <Screen
@@ -63,7 +63,7 @@ export default function ManageIPAScreen() {
             </View>
 
             <View className="flex-row gap-2 mt-3">
-              <SmallAction icon="share-social-outline" label={t('common.share')} onPress={() => share(ipa)} />
+              <SmallAction icon="copy-outline" label={t('common.copy')} onPress={() => copyAddress(ipa)} />
               {!ipa.isDefault ? <SmallAction icon="star-outline" label={t('ipa.setDefault')} onPress={() => setDefaultIPA(ipa.id)} /> : null}
             </View>
           </Card>
@@ -81,7 +81,7 @@ export default function ManageIPAScreen() {
         {actionsFor && !actionsFor.isDefault ? (
           <SheetRow icon="star-outline" label={t('ipa.setAsDefault')} onPress={() => { setDefaultIPA(actionsFor.id); setActionsFor(null); }} />
         ) : null}
-        <SheetRow icon="share-social-outline" label={t('ipa.shareAddress')} onPress={() => { share(actionsFor); setActionsFor(null); }} />
+        <SheetRow icon="copy-outline" label={t('ipa.copyAddress')} onPress={() => { copyAddress(actionsFor); setActionsFor(null); }} />
         <SheetRow icon="trash-outline" label={t('ipa.deleteIPA')} danger onPress={() => { setConfirmDelete(actionsFor); setActionsFor(null); }} />
       </BottomSheet>
 

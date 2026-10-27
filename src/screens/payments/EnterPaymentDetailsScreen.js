@@ -47,13 +47,18 @@ export default function EnterPaymentDetailsScreen({ navigation, route }) {
   const ref = reference.replace(/\s/g, '');
   const serviceName = service ? t(`services.${service}`) : null;
 
+  const isNumericField = field.keyboard === 'number-pad';
+  const maxLen = field.max ?? (isNumericField ? 20 : 50);
+
   const referenceError = (() => {
     if (!touched || field.min === 0) return null;
+    if (isNumericField && ref.length > 0 && !/^\d+$/.test(ref)) return t('payments.numericOnly');
     if (ref.length < field.min) return t('payments.minChars', { label: fieldLabel, min: field.min });
+    if (field.max && ref.length > field.max) return t('payments.maxChars', { label: fieldLabel, max: field.max });
     if (category.id === 'mobile' && !isValidEgMobile(ref)) return t('payments.invalidMobile');
     return null;
   })();
-  const referenceValid = field.min === 0 || (ref.length >= field.min && (category.id !== 'mobile' || isValidEgMobile(ref)));
+  const referenceValid = field.min === 0 || (ref.length >= field.min && (!field.max || ref.length <= field.max) && (!isNumericField || /^\d*$/.test(ref)) && (category.id !== 'mobile' || isValidEgMobile(ref)));
 
   const payAmount = isInquiry ? bill?.due ?? 0 : Number(amount) || 0;
   const fee = billFee(payAmount);
@@ -145,10 +150,12 @@ export default function EnterPaymentDetailsScreen({ navigation, route }) {
         keyboardType={field.keyboard}
         value={reference}
         onChangeText={(text) => {
-          setReference(text);
+          const cleaned = isNumericField ? text.replace(/[^\d\s]/g, '') : text;
+          setReference(cleaned);
           setBill(null);
         }}
         onBlur={() => setTouched(true)}
+        maxLength={maxLen}
         icon={category.icon}
         error={referenceError}
         helper={isInquiry ? t('payments.fetchHelper') : undefined}

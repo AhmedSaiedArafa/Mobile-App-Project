@@ -7,15 +7,18 @@ import { transactions } from '../../data/mock';
 import { formatMoney } from '../../utils/format';
 import { Card, Header, Screen, StatusPill } from '../../components';
 
+// Filters & groups
 const FILTERS = ['all', 'sent', 'received', 'bill'];
 const GROUPS = ['Today', 'Earlier'];
 
-function signedAmount(item, money) {
+// Helpers
+function signedAmount(item, egp) {
   const sign = item.amount < 0 ? '−' : '+';
-  return `${sign} ${formatMoney(Math.abs(item.amount))} EGP`;
+  return `${sign} ${formatMoney(Math.abs(item.amount))} ${egp}`;
 }
 
-function TransactionRow({ item, onPress, loc, colors }) {
+// Transaction row
+function TransactionRow({ item, onPress, loc, colors, t }) {
   const isReceived = item.type === 'received';
   const iconName = item.type === 'sent' ? 'paper-plane' : item.type === 'received' ? 'arrow-down' : 'document-text-outline';
   return (
@@ -30,13 +33,14 @@ function TransactionRow({ item, onPress, loc, colors }) {
         </View>
       </View>
       <View className="ml-3 items-end gap-1">
-        <Text className={`text-[13px] font-bold ${isReceived ? 'text-success' : 'text-ink'}`}>{signedAmount(item)}</Text>
-        <StatusPill label="Completed" />
+        <Text className={`text-[13px] font-bold ${isReceived ? 'text-success' : 'text-ink'}`}>{signedAmount(item, t('common.egp'))}</Text>
+        <StatusPill label={t('common.completed')} />
       </View>
     </Pressable>
   );
 }
 
+// Screen
 export default function TransactionHistoryScreen({ navigation }) {
   const { colors } = useTheme();
   const { t, loc } = useI18n();
@@ -82,6 +86,7 @@ export default function TransactionHistoryScreen({ navigation }) {
                   item={item}
                   colors={colors}
                   loc={loc}
+                  t={t}
                   onPress={() => navigation.navigate('TransactionDetails', { id: item.id })}
                 />
               ))}
